@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Tamil Clock தமிழ் நேர முறை  கடிகாரம்  </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+   
+<body>
+  <section>
+    <div class="container">
+      <div class="time">
+  
+        <div class="time-colon">
+          <div class="time-text">
+            <span class="num sec_num"></span>
+            <span class="text">சாமம்</span>
+          </div>
+		    <span class="colon">&nbsp</span>
+        </div>
+		<div class="time-colon">
+          <div class="time-text">
+            <span class="num hour_num"></span>
+            <span class="text">நாழிகை</span>
+          </div>
+          <span class="colon">:</span>
+        </div>
+		
+        <div class="time-colon">
+          <div class="time-text">
+            <span class="num min_num"></span>
+            <span class="text">விநாடி</span>
+          </div>
+        </div>
+		
+		
+      </div>
+    </div>
+  </section>
+
+<script>
+
+  setInterval(()=>{
+
+    let date = new Date(),
+    hour = date.getHours(),
+    min = date.getMinutes(),
+	sec = date.getSeconds();
+
+    //Adjusted to Sunrise. Sunrise considered as begining of நாழிகை, day
+    hour = hour > 6 ? hour - 6 : hour; 
+
+    //Adding 0 to the front of all the value if they will less than 10
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+	
+	var ஜாமம் = Math.floor(( (hour*60) + parseInt(min) )  / 144) + 1;;
+	document.querySelector(".sec_num").innerText = ஜாமம்;
+	
+	var  நாழிகை =  Math.floor(( (hour*60) + parseInt(min) )  / 24);  
+	document.querySelector(".hour_num").innerText = நாழிகை;
+	
+	var  வினாடி  = Math.floor((( (hour*60) + parseInt(min) )  % 24) * 60);
+	var வினாடி_1 = Math.floor(( வினாடி  + parseInt(sec) ) / 24);
+	document.querySelector(".min_num").innerText =  வினாடி_1;
+	
+
+	
+	
+  }, 1000); // calling every 1000 milliseconds = 1s
+
+</script>
+
+</body>
+</html>
