@@ -62,7 +62,7 @@ section .container .time{
 }
 .time .time-colon .time-text .text{
   font-size: 38px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 2px;
 }
 
