@@ -6,7 +6,7 @@
   transition: all 0.4s ease;
 }
 section{
-  min-height: 100vh;
+  min-height: 60vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@ section .container .time{
 }
 
 .time .time-colon .colon{
-  font-size: 40px;
+  font-size: 60px;
   margin: 0 10px;
 }
 .time .time-colon .time-text .text{
